@@ -30,7 +30,7 @@ pipeline {
         stage('Build Laravel API') {
             steps {
                 script {
-                    sh 'composer install'
+                    sh 'composer install --ignore-platform-req'
                     sh 'cp .env.example .env'
                     sh 'php artisan key:generate'
                     sh 'php artisan config:cache'
